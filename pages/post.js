@@ -3,14 +3,14 @@ import Head from "next/head";
 import ReactMarkdown from "react-markdown";
 import renderMathInElement from "../modules/auto-render";
 import Layout from "../components/Layout";
+import path from "path";
+import fs from "fs";
 
-export default function Post() {
-  const input = "# Exercises: \( a^2 + b^2 = c^2 \) $$ h^{200} $$ ";
-
+function Post({ post }) {
   useEffect(() => {
     renderMathInElement(document.getElementById("article"), {
       delimiters: [
-        {left: "\(", right: "\)", display: false},
+        {left: "$.", right: ".$", display: false},
         {left: "$$", right: "$$", display: true}
       ]
     });
@@ -24,8 +24,21 @@ export default function Post() {
         <link rel="stylesheet" href="/css/katex.min.css" />
       </Head>
       <article className="markdown-body" id="article">
-        <ReactMarkdown source={input} />
+        <ReactMarkdown source={post} />
       </article>
     </Layout>
   );
-};
+}
+
+export async function getStaticProps() {
+  const filePath = path.join(process.cwd(), "posts", "first.md");
+  const post = fs.readFileSync(filePath, 'utf8');
+
+  return {
+    props: {
+      post,
+    },
+  }
+}
+
+export default Post;

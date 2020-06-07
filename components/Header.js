@@ -4,7 +4,6 @@ export default function Header() {
   const [isBurgerActive, activateBurger] = useState(false);
 
   const onClick = () => {
-    console.log("clicked");
     activateBurger(!isBurgerActive);
   }
 
