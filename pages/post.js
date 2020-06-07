@@ -5,6 +5,7 @@ import renderMathInElement from "../modules/auto-render";
 import Layout from "../components/Layout";
 import path from "path";
 import fs from "fs";
+import Article from "../components/Article";
 
 function Post({ post }) {
   useEffect(() => {
@@ -23,9 +24,11 @@ function Post({ post }) {
         <link rel="stylesheet" href="/css/github-markdown.css" />
         <link rel="stylesheet" href="/css/katex.min.css" />
       </Head>
-      <article className="markdown-body" id="article">
-        <ReactMarkdown source={post} />
-      </article>
+      <Article>
+        <div id="article">
+          <ReactMarkdown source={post} />
+        </div>
+      </Article>
     </Layout>
   );
 }

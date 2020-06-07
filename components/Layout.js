@@ -9,17 +9,11 @@ export default function Layout({children, title}) {
       <Head>
         <title>{title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
-        <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png"/>
+        <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png"/>
       </Head>
-      <div className="wrapper">
-        <Header/>
-        <div className="columns is-centered">
-          <div className="column is-8">
-            {children}
-          </div>
-        </div>
-        <Footer/>
-      </div>
+      <Header/>
+      {children}
+      <Footer/>
     </>
   );
 }
