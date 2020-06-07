@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import renderMathInElement from "../modules/auto-render";
+import renderMathInElement from "../lib/auto-render";
 import ReactMarkdown from "react-markdown";
 
 export default function Article({ article }) {
