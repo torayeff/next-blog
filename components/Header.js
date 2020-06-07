@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import Link from "next/link";
 
 export default function Header() {
   const [isBurgerActive, activateBurger] = useState(false);
@@ -12,9 +13,11 @@ export default function Header() {
       <div className="container">
 
         <div className="navbar-brand">
-          <a className="navbar-item" href="../">
-            <img src="/logo.png" alt="Logo"/>
-          </a>
+          <Link href="/">
+            <a className="navbar-item">
+              <img src="/logo.png" alt="Logo"/>
+            </a>
+          </Link>
           <span className={`navbar-burger burger ${isBurgerActive ? "is-active" : ""}`}
                 data-target="navbarMenu"
                 onClick={onClick}>
@@ -26,9 +29,8 @@ export default function Header() {
 
         <div id="navbarMenu" className={`navbar-menu ${isBurgerActive ? "is-active" : ""}`}>
           <div className="navbar-end">
-            <a className="navbar-item">Blog</a>
-            <a className="navbar-item">Projects</a>
-            <a className="navbar-item">Quotes</a>
+            <Link href="/blog"><a className="navbar-item">Blog</a></Link>
+            <Link href="/projects"><a className="navbar-item">Projects</a></Link>
           </div>
         </div>
 

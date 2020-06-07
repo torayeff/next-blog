@@ -1,4 +1,17 @@
-export default function Articl({ children }) {
+import React, { useEffect } from "react";
+import renderMathInElement from "../modules/auto-render";
+import ReactMarkdown from "react-markdown";
+
+export default function Article({ article }) {
+  useEffect(() => {
+    renderMathInElement(document.getElementById("article"), {
+      delimiters: [
+        {left: "$.", right: ".$", display: false},
+        {left: "$$", right: "$$", display: true}
+      ]
+    });
+  });
+
   return (
     <div className="container">
       <section className="articles">
@@ -14,10 +27,8 @@ export default function Articl({ children }) {
                   </div>
                 </div>
               </div>
-              <div className="content article-body">
-                <p>Non arcu risus quis varius quam quisque. Dictum varius duis at consectetur lorem. Posuere
-                  sollicitudin aliquam ultrices sagittis orci a scelerisque purus semper. </p>
-                {children}
+              <div className="content article-body" id="article">
+                  <ReactMarkdown source={article} />
               </div>
             </div>
           </div>
