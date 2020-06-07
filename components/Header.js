@@ -9,7 +9,7 @@ export default function Header() {
 
             <div className="navbar-brand">
               <a className="navbar-item" href="../">
-                <img src="/bulma.png" alt="Logo"/>
+                <img src="/logo.png" alt="Logo"/>
               </a>
               <span className="navbar-burger burger" data-target="navbarMenu">
               <span/>
