@@ -24,5 +24,13 @@ html, body {
   width: 100%;
 }
 
+.card {
+  padding: 50px;
+}
+
+.md-katex-content {
+  text-align: justify;
+}
+
 
 @import "../node_modules/bulma/bulma.sass";
